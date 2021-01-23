@@ -4,9 +4,12 @@ namespace backend.Models
 {
     public class DataContext : DbContext
     {
-        public DbSet<Giveaways> Giveaways { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=GiveawayDb;Trusted_Connection=True;");
+        public DataContext(DbContextOptions<DataContext> options)
+        : base(options)
+        {
+        }
+        public DbSet<Giveaway> Giveaways { get; set; }
+
     }
 }

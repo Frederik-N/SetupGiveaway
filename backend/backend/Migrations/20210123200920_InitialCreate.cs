@@ -27,23 +27,23 @@ namespace backend.Migrations
                     UserId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GiveawaysGiveawayId = table.Column<int>(type: "int", nullable: true)
+                    GiveawayId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.UserId);
                     table.ForeignKey(
-                        name: "FK_Users_Giveaways_GiveawaysGiveawayId",
-                        column: x => x.GiveawaysGiveawayId,
+                        name: "FK_Users_Giveaways_GiveawayId",
+                        column: x => x.GiveawayId,
                         principalTable: "Giveaways",
                         principalColumn: "GiveawayId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_GiveawaysGiveawayId",
+                name: "IX_Users_GiveawayId",
                 table: "Users",
-                column: "GiveawaysGiveawayId");
+                column: "GiveawayId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

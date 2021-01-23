@@ -19,7 +19,7 @@ namespace backend.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.2");
 
-            modelBuilder.Entity("backend.Models.Giveaways", b =>
+            modelBuilder.Entity("backend.Models.Giveaway", b =>
                 {
                     b.Property<int>("GiveawayId")
                         .ValueGeneratedOnAdd()
@@ -44,7 +44,7 @@ namespace backend.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int?>("GiveawaysGiveawayId")
+                    b.Property<int?>("GiveawayId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -52,19 +52,19 @@ namespace backend.Migrations
 
                     b.HasKey("UserId");
 
-                    b.HasIndex("GiveawaysGiveawayId");
+                    b.HasIndex("GiveawayId");
 
                     b.ToTable("Users");
                 });
 
             modelBuilder.Entity("backend.Models.Users", b =>
                 {
-                    b.HasOne("backend.Models.Giveaways", null)
+                    b.HasOne("backend.Models.Giveaway", null)
                         .WithMany("Participants")
-                        .HasForeignKey("GiveawaysGiveawayId");
+                        .HasForeignKey("GiveawayId");
                 });
 
-            modelBuilder.Entity("backend.Models.Giveaways", b =>
+            modelBuilder.Entity("backend.Models.Giveaway", b =>
                 {
                     b.Navigation("Participants");
                 });

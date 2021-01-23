@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace backend.Models
 {
-    public class Giveaways
+    public class Giveaway
     {
         [Key]
         public int GiveawayId { get; set; }
