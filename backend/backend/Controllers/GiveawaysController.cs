@@ -1,6 +1,8 @@
 ﻿using backend.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace backend.Controllers
 {
@@ -15,24 +17,24 @@ namespace backend.Controllers
             _dataContext = dataContext;
         }
         [HttpGet]
-        public ActionResult<IEnumerable<Giveaway>> GetGiveaways()
+        public async Task<ActionResult<IEnumerable<Giveaway>>> GetGiveaways()
         {
-            return _dataContext.Giveaways;
+            return await _dataContext.Giveaways.ToListAsync();
         }
 
         [HttpGet("{giveawayId}")]
-        public ActionResult<Giveaway> GetGiveaway(int giveawayId)
+        public async Task<ActionResult<Giveaway>> GetGiveaway(int giveawayId)
         {
-            var result = _dataContext.Giveaways.Find(giveawayId);
+            var result = await _dataContext.Giveaways.FindAsync(giveawayId);
             return result;
         }
 
         [HttpPost]
-        public ActionResult<Giveaway> PostGiveaway(Giveaway giveaway)
+        public async Task<ActionResult<Giveaway>> PostGiveaway(Giveaway giveaway)
         {
             var result = new Giveaway { Content = giveaway.Content, Participants = giveaway.Participants, Title = giveaway.Title };
-            _dataContext.Add(result); ;
-            _dataContext.SaveChanges();
+            await _dataContext.AddAsync(result); ;
+            await _dataContext.SaveChangesAsync();
             return result;
         }
     }

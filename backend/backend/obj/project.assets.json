@@ -5548,23 +5548,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Frede\\.nuget\\packages\\": {},
+    "C:\\Users\\frednielsen\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Frede\\Skrivebord\\Projects\\git\\SetupGiveaway\\backend\\backend\\backend.csproj",
+      "projectUniqueName": "C:\\Users\\frednielsen\\Desktop\\Coding\\git\\SetupGiveaway\\backend\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "C:\\Users\\Frede\\Skrivebord\\Projects\\git\\SetupGiveaway\\backend\\backend\\backend.csproj",
-      "packagesPath": "C:\\Users\\Frede\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Frede\\Skrivebord\\Projects\\git\\SetupGiveaway\\backend\\backend\\obj\\",
+      "projectPath": "C:\\Users\\frednielsen\\Desktop\\Coding\\git\\SetupGiveaway\\backend\\backend\\backend.csproj",
+      "packagesPath": "C:\\Users\\frednielsen\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\frednielsen\\Desktop\\Coding\\git\\SetupGiveaway\\backend\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Frede\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\frednielsen\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -5642,7 +5642,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
