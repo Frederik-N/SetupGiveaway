@@ -10,7 +10,7 @@ using backend.Models;
 namespace backend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210123200920_InitialCreate")]
+    [Migration("20210125111912_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

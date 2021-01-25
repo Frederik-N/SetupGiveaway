@@ -30,6 +30,7 @@ namespace backend
 
             services.AddDbContext<DataContext>(
         options => options.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=GiveawayDb;Trusted_Connection=True;"));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
