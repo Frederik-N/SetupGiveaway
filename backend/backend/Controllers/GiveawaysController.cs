@@ -30,10 +30,20 @@ namespace backend.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Giveaway>> PostGiveaway(Giveaway giveaway)
+        public async Task<ActionResult<Giveaway>> PostGiveaway(GiveawayPostRequest giveawayPostRequest)
         {
-            var result = new Giveaway { Content = giveaway.Content, Participants = giveaway.Participants, Title = giveaway.Title };
+            var result = new Giveaway { Content = giveawayPostRequest.Content, Participants = giveawayPostRequest.participants, Title = giveawayPostRequest.Title };
             await _dataContext.AddAsync(result); ;
+            await _dataContext.SaveChangesAsync();
+            return result;
+        }
+
+
+        [HttpPost("{giveawayId}")]
+        public async Task<ActionResult<Participant>> JoinGiveaway(int giveawayId, Participant participant)
+        {
+            var result = new Participant {  Name = participant.Name, GiveawayId = giveawayId};
+            await _dataContext.AddAsync(result);
             await _dataContext.SaveChangesAsync();
             return result;
         }

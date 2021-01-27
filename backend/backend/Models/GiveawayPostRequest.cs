@@ -4,13 +4,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace backend.Models
 {
-    public class Giveaway
+    public class GiveawayPostRequest
     {
-        [Key]
-        public int GiveawayId { get; set; }
         public string Content { get; set; }
         public string Title { get; set; }
 
-        public List<Participant> Participants { get; set; }
+        public List<Participant> participants { get; set; }
     }
 }

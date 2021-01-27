@@ -21,35 +21,35 @@ namespace backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "Participants",
                 columns: table => new
                 {
                     UserId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GiveawayId = table.Column<int>(type: "int", nullable: true)
+                    GiveawayId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.PrimaryKey("PK_Participants", x => x.UserId);
                     table.ForeignKey(
-                        name: "FK_Users_Giveaways_GiveawayId",
+                        name: "FK_Participants_Giveaways_GiveawayId",
                         column: x => x.GiveawayId,
                         principalTable: "Giveaways",
                         principalColumn: "GiveawayId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_GiveawayId",
-                table: "Users",
+                name: "IX_Participants_GiveawayId",
+                table: "Participants",
                 column: "GiveawayId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Participants");
 
             migrationBuilder.DropTable(
                 name: "Giveaways");

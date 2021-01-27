@@ -10,6 +10,7 @@ namespace backend.Models
         {
         }
         public DbSet<Giveaway> Giveaways { get; set; }
+        public DbSet<Participant> Participants { get; set; }
 
     }
 }
