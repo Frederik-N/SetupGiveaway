@@ -9,6 +9,6 @@ namespace backend.Models
         public string Content { get; set; }
         public string Title { get; set; }
 
-        public List<Participant> participants { get; set; }
+        public List<Participant> Participants { get; set; }
     }
 }

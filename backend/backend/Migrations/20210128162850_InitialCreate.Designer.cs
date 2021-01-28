@@ -8,8 +8,8 @@ using backend.Models;
 
 namespace backend.Migrations
 {
-    [DbContext(typeof(DataRepository))]
-    [Migration("20210127161246_InitialCreate")]
+    [DbContext(typeof(DataContext))]
+    [Migration("20210128162850_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

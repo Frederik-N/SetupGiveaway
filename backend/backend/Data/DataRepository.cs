@@ -27,6 +27,12 @@ namespace backend.Data
             return await _dataContext.Giveaways.ToListAsync();
         }
 
+        public async Task<ActionResult<List<Participant>>> GetParticipants(int giveawayId)
+        {
+            var result = await _dataContext.Participants.Where(p => p.GiveawayId == giveawayId).ToListAsync();
+            return result;
+        }
+
         public async Task<ActionResult<Participant>> JoinGiveaway(int giveawayId, Participant participant)
         {
             var result = new Participant { Name = participant.Name, GiveawayId = giveawayId };
@@ -37,7 +43,7 @@ namespace backend.Data
 
         public async Task<ActionResult<Giveaway>> PostGiveaway(GiveawayPostRequest giveawayPostRequest)
         {
-            var result = new Giveaway { Content = giveawayPostRequest.Content, Participants = giveawayPostRequest.participants, Title = giveawayPostRequest.Title };
+            var result = new Giveaway { Content = giveawayPostRequest.Content, Participants = giveawayPostRequest.Participants, Title = giveawayPostRequest.Title };
             await _dataContext.AddAsync(result); ;
             await _dataContext.SaveChangesAsync();
             return result;

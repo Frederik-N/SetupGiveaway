@@ -16,5 +16,7 @@ namespace backend.Data
         public Task<ActionResult<Giveaway>> GetGiveaway(int giveawayId);
 
         public Task<ActionResult<IEnumerable<Giveaway>>> GetGiveaways();
+
+        public Task<ActionResult<List<Participant>>> GetParticipants(int giveawayId);
     }
 }

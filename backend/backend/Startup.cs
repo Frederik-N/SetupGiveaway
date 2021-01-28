@@ -1,3 +1,5 @@
+
+using backend.Data;
 using backend.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,12 +25,13 @@ namespace backend
         {
 
             services.AddControllers();
+            services.AddScoped<IDataRepository, DataRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "backend", Version = "v1" });
             });
 
-            services.AddDbContext<DataRepository>(
+            services.AddDbContext<DataContext>(
         options => options.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=GiveawayDb;Trusted_Connection=True;"));
 
         }
