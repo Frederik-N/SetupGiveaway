@@ -8,7 +8,7 @@ using backend.Models;
 
 namespace backend.Migrations
 {
-    [DbContext(typeof(DataContext))]
+    [DbContext(typeof(DataRepository))]
     [Migration("20210127161246_InitialCreate")]
     partial class InitialCreate
     {

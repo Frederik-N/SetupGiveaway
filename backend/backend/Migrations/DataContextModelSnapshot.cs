@@ -7,7 +7,7 @@ using backend.Models;
 
 namespace backend.Migrations
 {
-    [DbContext(typeof(DataContext))]
+    [DbContext(typeof(DataRepository))]
     partial class DataContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

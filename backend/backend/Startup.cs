@@ -28,7 +28,7 @@ namespace backend
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "backend", Version = "v1" });
             });
 
-            services.AddDbContext<DataContext>(
+            services.AddDbContext<DataRepository>(
         options => options.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=GiveawayDb;Trusted_Connection=True;"));
 
         }

@@ -1,4 +1,5 @@
-﻿using backend.Models;
+﻿using backend.Data;
+using backend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -10,42 +11,35 @@ namespace backend.Controllers
     [Route("[controller]")]
     public class GiveawaysController : Controller
     {
-        private readonly DataContext _dataContext;
+        private readonly IDataRepository _dataRepository;
 
-        public GiveawaysController(DataContext dataContext)
+        public GiveawaysController(IDataRepository dataRepository)
         {
-            _dataContext = dataContext;
+            _dataRepository = dataRepository;
         }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Giveaway>>> GetGiveaways()
         {
-            return await _dataContext.Giveaways.ToListAsync();
+            return await _dataRepository.GetGiveaways();
         }
 
         [HttpGet("{giveawayId}")]
         public async Task<ActionResult<Giveaway>> GetGiveaway(int giveawayId)
         {
-            var result = await _dataContext.Giveaways.FindAsync(giveawayId);
-            return result;
+            return await _dataRepository.GetGiveaway(giveawayId);
         }
 
         [HttpPost]
         public async Task<ActionResult<Giveaway>> PostGiveaway(GiveawayPostRequest giveawayPostRequest)
         {
-            var result = new Giveaway { Content = giveawayPostRequest.Content, Participants = giveawayPostRequest.participants, Title = giveawayPostRequest.Title };
-            await _dataContext.AddAsync(result); ;
-            await _dataContext.SaveChangesAsync();
-            return result;
+            return await _dataRepository.PostGiveaway(giveawayPostRequest);
         }
 
 
         [HttpPost("{giveawayId}")]
         public async Task<ActionResult<Participant>> JoinGiveaway(int giveawayId, Participant participant)
         {
-            var result = new Participant {  Name = participant.Name, GiveawayId = giveawayId};
-            await _dataContext.AddAsync(result);
-            await _dataContext.SaveChangesAsync();
-            return result;
+            return await _dataRepository.JoinGiveaway(giveawayId, participant);
         }
     }
 }
